@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <EditText
         android:id="@+id/cost_of_service"
@@ -14,7 +15,8 @@
         android:inputType="numberDecimal"
         android:hint="Cost of Service"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/service_question"
@@ -22,5 +24,60 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cost_of_service"
-        android:text="How was the service?" />
+        android:text="How was the service?"
+        />
+
+    <RadioGroup
+        android:id="@+id/quality_of_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/excellent_service"
+        app:layout_constraintTop_toBottomOf="@id/service_question"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <RadioButton
+            android:id="@+id/excellent_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/service_quality_option_text_excellent"
+            />
+        <RadioButton
+            android:id="@+id/good_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/service_quality_option_text_good"
+            />
+        <RadioButton
+            android:id="@+id/normal_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/service_quality_option_text_ok"
+            />
+    </RadioGroup>
+    <Switch
+        android:id="@+id/roundup_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/quality_of_service"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text = "Round up the tip?"
+        android:checked="false"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+    <Button
+        android:id="@+id/calculate_tip_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/roundup_switch"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Calculate Tip"
+        />
+    <TextView
+        android:id="@+id/tip_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/calculate_tip_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Your tip amount is: $10.00"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
